@@ -15,7 +15,7 @@ class Entry(Base):
     self.email = email
     self.address = address
 
-  def __init__(self):
+  def __repr__(self):
     '<Entry %r>' % (self.firstname)
 
 
