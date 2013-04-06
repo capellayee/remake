@@ -3,17 +3,21 @@
   {% if session.logged_in %}
   	<form action="{{ url_for('add_entry') }}" method=post class=add-entry>
 	  <dl>
-		<dt>Title:
-		<dd><input type=text size=20 name=title>
-		<dt>Text:
-		<dd><textarea name=text rows=5 cols=40></textarea>
+		<dt>First name:
+		<dd><input type=text size=20 name=firstname>
+		<dt>Last name:
+		<dd><input type=text size=20 name=lastname>
+		<dt>Email::
+		<dd><input type=text size=20 name=email>
+		<dt>Address:
+		<dd><textarea name=address rows=5 cols=40></textarea>
 		<dd><input type=submit value=Share>
 	  </dl>
 	</form>
   {% endif %}
   <ul class=entries>
   {% for entry in entries %}
-	<li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}
+	<li><h2>{{ entry.firstname }}</h2>{{ entry.lastname|safe }}
          {% if session.logged_in %}
 		<br><a href='{{ url_for('remove_entry', entryid=entry.id) }}'>X</a>
 	{% endif %}

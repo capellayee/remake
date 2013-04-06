@@ -17,7 +17,7 @@
   {% endif %}
   <ul class=entries>
   {% for entry in entries %}
-	<li><h2>{{ entry.firstname }}</h2>{{ entry.lastname|safe }}
+	<li><h2>{{ entry.firstname + ' ' + entry.lastname}}</h2>{{ entry.email|safe }}{{ entry.address|safe }}
          {% if session.logged_in %}
 		<br><a href='{{ url_for('remove_entry', entryid=entry.id) }}'>X</a>
 	{% endif %}
